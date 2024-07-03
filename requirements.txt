@@ -7,5 +7,3 @@ betterlogging
 backoff
 ujson
 yarl
-
-GL=glpat-Vzz2Bk16HQC18w6oxsEJ
