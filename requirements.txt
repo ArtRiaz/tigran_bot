@@ -1,0 +1,11 @@
+aiogram==3.2.0
+environs~=9.0
+redis
+betterlogging
+
+# # For enabling api:
+backoff
+ujson
+yarl
+
+GL=glpat-Vzz2Bk16HQC18w6oxsEJ

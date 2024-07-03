@@ -1,0 +1,32 @@
+version: '3.3'
+
+services:
+  bot:
+    image: "bot"
+    stop_signal: SIGINT
+    build:
+      context: .
+    working_dir: "/usr/src/app/bot"
+    volumes:
+      - .:/usr/src/app/bot
+    command: python3 -m bot
+    restart: always
+    env_file:
+      - ".env"
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+  reverse-proxy:
+    container_name: nginx-reverse-proxy
+    stop_signal: SIGINT
+    restart: always
+    image: nginx:latest
+    ports:
+      - '9090:80'
+    volumes:
+      - ./nginx/bot.conf:/etc/nginx/conf.d/bot.conf
+
